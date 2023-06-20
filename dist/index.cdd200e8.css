@@ -1,0 +1,160 @@
+@media (width <= 33em) {
+  .forecast {
+    width: 90%;
+  }
+
+  .forecast-container {
+    width: 100%;
+  }
+}
+
+@media (width <= 30rem) {
+  .condition-div > p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (width <= 28.25rem) {
+  .weather-icon {
+    width: 10rem;
+  }
+
+  .weather-div h1 {
+    font-size: 4.4rem;
+  }
+
+  .weather-div h2 {
+    font-size: 3rem;
+  }
+
+  .details {
+    justify-content: center;
+  }
+
+  .condition-div > p {
+    font-size: 1.2rem;
+  }
+
+  .condition > p {
+    font-size: 2rem;
+  }
+
+  .speed > span {
+    margin-bottom: .1rem;
+    font-size: 1.6rem;
+  }
+
+  .percent > span {
+    margin-top: -.4rem;
+    font-size: 1.6rem;
+  }
+
+  .col img {
+    width: 3.8rem;
+  }
+
+  .forecast {
+    margin: 2.4rem auto 0;
+  }
+}
+
+@media (width <= 25.75rem) {
+  .weather-icon {
+    width: 8rem;
+  }
+
+  .weather-div h1 {
+    font-size: 3.6rem;
+  }
+
+  .weather-div h2 {
+    font-size: 2.4rem;
+  }
+
+  .condition-div > p {
+    font-size: 1.1rem;
+  }
+
+  .condition > p {
+    font-size: 1.6rem;
+  }
+
+  .speed > span {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+
+  .percent > span {
+    margin-top: -.4rem;
+    margin-left: .2rem;
+    font-size: 1.2rem;
+  }
+
+  .col img {
+    width: 3.5rem;
+  }
+}
+
+@media (width <= 24.18rem) {
+  .weather-icon {
+    width: 6.4rem;
+  }
+
+  .weather-div h1 {
+    font-size: 3rem;
+  }
+
+  .weather-div h2 {
+    font-size: 2rem;
+  }
+
+  .details {
+    margin-top: 3.2rem;
+  }
+
+  .temp {
+    margin-top: .2rem;
+  }
+
+  .condition-div > p {
+    font-size: 1rem;
+  }
+
+  .condition > p {
+    font-size: 1.4rem;
+  }
+
+  .day > p {
+    font-size: 1.2rem;
+  }
+
+  form input {
+    width: 60%;
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  button img {
+    width: 1.4rem;
+  }
+}
+
+@media (width <= 21.87rem) {
+  form input {
+    width: 60%;
+    font-size: 1.2rem;
+  }
+}
+
+@media (width <= 20.25rem) {
+  form input {
+    width: 60%;
+    font-size: 1.1rem;
+  }
+}
+
+/*# sourceMappingURL=index.cdd200e8.css.map */

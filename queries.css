@@ -1,0 +1,162 @@
+@media (max-width: 33em) {
+  .forecast {
+    /* max-width: 40rem; */
+    width: 90%;
+  }
+}
+
+@media (max-width: 33em) {
+  .forecast-container {
+    /* max-width: 40rem; */
+    width: 100%;
+  }
+}
+
+@media (max-width: 30rem) {
+  .condition-div > p {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 28.25rem) {
+  .weather-icon {
+    width: 10rem;
+  }
+
+  .weather-div h1 {
+    font-size: 4.4rem;
+  }
+
+  .weather-div h2 {
+    font-size: 3rem;
+  }
+
+  .details {
+    justify-content: center;
+  }
+
+  .condition-div > p {
+    font-size: 1.2rem;
+  }
+
+  .condition > p {
+    font-size: 2rem;
+  }
+
+  .speed > span {
+    font-size: 1.6rem;
+    margin-bottom: 0.1rem;
+  }
+  .percent > span {
+    font-size: 1.6rem;
+    margin-top: -0.4rem;
+  }
+
+  .col img {
+    width: 3.8rem;
+  }
+
+  .forecast {
+    margin: 2.4rem auto 0;
+  }
+
+  /* need to reformat the 3day forcast here */
+}
+
+@media (max-width: 25.75rem) {
+  .weather-icon {
+    width: 8rem;
+  }
+
+  .weather-div h1 {
+    font-size: 3.6rem;
+  }
+
+  .weather-div h2 {
+    font-size: 2.4rem;
+  }
+
+  .condition-div > p {
+    font-size: 1.1rem;
+  }
+
+  .condition > p {
+    font-size: 1.6rem;
+  }
+
+  .speed > span {
+    font-size: 1.2rem;
+    margin-bottom: 0rem;
+  }
+  .percent > span {
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
+    margin-top: -0.4rem;
+  }
+
+  .col img {
+    width: 3.5rem;
+  }
+}
+
+@media (max-width: 24.18rem) {
+  .weather-icon {
+    width: 6.4rem;
+  }
+
+  .weather-div h1 {
+    font-size: 3rem;
+  }
+
+  .weather-div h2 {
+    font-size: 2rem;
+  }
+
+  .details {
+    margin-top: 3.2rem;
+  }
+
+  .temp {
+    margin-top: 0.2rem;
+  }
+
+  .condition-div > p {
+    font-size: 1rem;
+  }
+
+  .condition > p {
+    font-size: 1.4rem;
+  }
+
+  .day > p {
+    font-size: 1.2rem;
+  }
+
+  form input {
+    width: 60%;
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  button img {
+    width: 1.4rem;
+  }
+}
+
+@media (max-width: 21.87rem) {
+  form input {
+    width: 60%;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 20.25rem) {
+  form input {
+    width: 60%;
+    font-size: 1.1rem;
+  }
+}

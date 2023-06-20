@@ -1,0 +1,23 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Weather App",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aburgy-93/weather-app.git"
+  },
+  "author": "Alex Burgy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aburgy-93/weather-app/issues"
+  },
+  "homepage": "https://github.com/aburgy-93/weather-app#readme",
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  }
+}

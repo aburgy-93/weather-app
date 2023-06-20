@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: url("6220925.9453ed3c.jpg") 0 0 / cover;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+main {
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  max-width: 47rem;
+  margin: 4.8rem auto 0;
+  padding: 40px 35px;
+  display: flex;
+}
+
+form input {
+  color: #555;
+  background: #ebfffc;
+  border: 0;
+  border-radius: 3rem;
+  outline: 0;
+  flex: 1;
+  width: 67%;
+  height: 5.4rem;
+  margin-right: 1.6rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.8rem;
+}
+
+ion-icon {
+  width: 10rem;
+  height: 10rem;
+}
+
+.btn {
+  cursor: pointer;
+  background: #ebfffc;
+  border: 0;
+  border-radius: 50%;
+  outline: 0;
+  width: 5.4rem;
+  height: 5.4rem;
+}
+
+button img {
+  width: 1.6rem;
+}
+
+.weather-icon {
+  width: 12rem;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.weather-div h1 {
+  font-size: 5.2rem;
+  font-weight: 500;
+}
+
+.weather-div h2 {
+  font-size: 3.6rem;
+  font-weight: 400;
+}
+
+.details {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+  padding: 0 3rem;
+  display: flex;
+}
+
+.col {
+  text-align: left;
+  align-items: center;
+  margin-top: -2.5rem;
+  display: flex;
+}
+
+.col img {
+  width: 4.8rem;
+  margin-right: 1rem;
+}
+
+.left {
+  margin-right: 3rem;
+}
+
+.condition {
+  display: flex;
+}
+
+.speed {
+  align-items: end;
+  display: flex;
+}
+
+.speed > span {
+  margin-bottom: .4rem;
+  margin-left: .2rem;
+  font-size: 2rem;
+}
+
+.percent > span {
+  font-size: 2rem;
+}
+
+.humidity, .wind {
+  margin-top: -.6rem;
+}
+
+.condition > p {
+  font-size: 3rem;
+}
+
+.condition-div > p {
+  font-size: 1.6rem;
+}
+
+.forecast {
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  border-radius: 2rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 48rem;
+  margin: 5rem auto 0;
+  padding: 2.4rem 3.6rem;
+  display: flex;
+}
+
+.forecast-container {
+  float: left;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.day {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-right: 1rem;
+  display: flex;
+}
+
+.day > p {
+  font-size: 1.4rem;
+}
+
+.day > img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=index.3a01df49.css.map */
