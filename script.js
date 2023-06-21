@@ -8,6 +8,8 @@ const weatherIcon = document.querySelector(".weather-icon");
 const weatherDetails = document.querySelector(".details");
 const forecastContainer = document.querySelector(".forecast-container");
 
+const _errorMessage = "Could not find that location. Please try another one!";
+
 const state = {
   query: "",
   location: {},
@@ -16,13 +18,13 @@ const state = {
   forecastResults: [],
 };
 
-const renderError = function (msg) {
+const renderError = function (msg = _errorMessage) {
   const markup = `
     <div class="error">
-    <p>ERROR</p>
       <div>
-      <ion-icon name="warning"></ion-icon>
+        <ion-icon name="warning"></ion-icon>
       </div>
+      <p>${msg}</p>
     </div>
   `;
   weatherDiv.innerHTML = "";
@@ -34,8 +36,8 @@ const getWeatherData = async function (local) {
     if (!local) return;
     state.query = local;
     const response = await fetch(
-      // `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${local}&days=3&aqi=no&alerts=no`
-      `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=&days=3&aqi=no&alerts=no`
+      `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${local}&days=3&aqi=no&alerts=no`
+      // `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=&days=3&aqi=no&alerts=no`
     );
     const data = await response.json();
 
@@ -99,7 +101,7 @@ const getWeatherData = async function (local) {
   } catch (err) {
     // throw new Error(renderError(err));
     // throw renderError(err);
-    renderError(err);
+    renderError();
   }
 };
 

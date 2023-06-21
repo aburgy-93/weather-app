@@ -120,12 +120,8 @@
     font-size: 1rem;
   }
 
-  .condition > p {
+  .condition > p, .day > p {
     font-size: 1.4rem;
-  }
-
-  .day > p {
-    font-size: 1.2rem;
   }
 
   form input {

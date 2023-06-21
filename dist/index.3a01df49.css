@@ -45,9 +45,14 @@ form input {
   font-size: 1.8rem;
 }
 
+.error > p {
+  font-size: 1.6rem;
+}
+
 ion-icon {
-  width: 10rem;
-  height: 10rem;
+  width: 5rem;
+  height: 5rem;
+  margin-top: 2rem;
 }
 
 .btn {
@@ -169,7 +174,7 @@ button img {
 }
 
 .day > p {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 .day > img {
