@@ -574,6 +574,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"6rimH":[function(require,module,exports) {
+var _model = require("./src/model");
 "use strict";
 const textArea = document.querySelector("#textarea");
 const btnSubmit = document.querySelector(".btn-submit");
@@ -583,13 +584,6 @@ const weatherIcon = document.querySelector(".weather-icon");
 const weatherDetails = document.querySelector(".details");
 const forecastContainer = document.querySelector(".forecast-container");
 const _errorMessage = "Could not find that location. Please try another one!";
-const state = {
-    query: "",
-    location: {},
-    current: {},
-    condition: {},
-    forecastResults: []
-};
 const renderError = function(msg = _errorMessage) {
     const markup = `
     <div class="error">
@@ -605,33 +599,33 @@ const renderError = function(msg = _errorMessage) {
 const getWeatherData = async function(local) {
     try {
         if (!local) return;
-        state.query = local;
+        _model.state.query = local;
         const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${local}&days=3&aqi=no&alerts=no`);
         const data = await response.json();
         const { current  } = data;
         const { condition  } = data.current;
         const { forecastday  } = data.forecast;
         const { location  } = data;
-        state.current = {
+        _model.state.current = {
             currTempF: current.feelslike_f,
             currWeather: current.condition.text,
             humidity: current.humidity,
             windSpeed: current.wind_mph
         };
-        state.condition = {
+        _model.state.condition = {
             conditionIcon: condition.icon
         };
-        state.location = {
+        _model.state.location = {
             name: location.name,
             region: location.region
         };
         createForcastObject(forecastday);
         const markup = `
       <div class="weaither-info">
-        <img src="${state.condition.conditionIcon}" class="weather-icon">
-        <h1 class="location-heading">${state.location.name}, ${state.location.region}</h1>
-        <h2 class="weather-description">${state.current.currWeather}</h2>
-        <h2 class="temp">${state.current.currTempF}<span>&#8457;</span></h2>
+        <img src="${_model.state.condition.conditionIcon}" class="weather-icon">
+        <h1 class="location-heading">${_model.state.location.name}, ${_model.state.location.region}</h1>
+        <h2 class="weather-description">${_model.state.current.currWeather}</h2>
+        <h2 class="temp">${_model.state.current.currTempF}<span>&#8457;</span></h2>
       </div>
     `;
         weatherInfo.textContent = "";
@@ -641,7 +635,7 @@ const getWeatherData = async function(local) {
         <img src="/humidity.5ee5b96c.png" alt="">
         <div class="condition-div">
           <div class="condition percent">
-            <p class="humidity">${state.current.humidity}%</p>
+            <p class="humidity">${_model.state.current.humidity}%</p>
           </div>
           <p>Humidity</p>
         </div>
@@ -650,7 +644,7 @@ const getWeatherData = async function(local) {
         <img src="/wind.b8bb298f.png" alt="">
         <div class="condition-div">
           <div class="condition speed">
-            <p class="wind">${state.current.windSpeed}</p><span>mph</span>
+            <p class="wind">${_model.state.current.windSpeed}</p><span>mph</span>
           </div>
           <p class="wind-speed">Wind Speed</p>
         </div>
@@ -666,7 +660,7 @@ const getWeatherData = async function(local) {
     }
 };
 const createForcastObject = function(data) {
-    state.forecastResults = data.map((data)=>{
+    _model.state.forecastResults = data.map((data)=>{
         const forecastDates = new Date(data.date);
         forecastDates.setDate(forecastDates.getDate() + 1);
         const dateFormat = {
@@ -683,7 +677,7 @@ const createForcastObject = function(data) {
 };
 const loadDailyForecast = async function() {
     try {
-        const data = state.forecastResults;
+        const data = _model.state.forecastResults;
         if (!data) return;
         const markup = data.map((day)=>{
             return `
@@ -713,6 +707,48 @@ btnSubmit.addEventListener("click", function(e) {
     weatherDiv.style.display = "block";
     textArea.value = "";
 });
+
+},{"./src/model":"dEDha"}],"dEDha":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+const state = {
+    query: "",
+    location: {},
+    current: {},
+    condition: {},
+    forecastResults: []
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["gAoaA","6rimH"], "6rimH", "parcelRequirebbde")
 

@@ -1,0 +1,11 @@
+Current:
+-made the model and controller and searchView files
+-searchView gets the query and sends it to the model
+-Objects are made in the model
+-Controller on the search textarea works!
+-Next, need to make a "weatherView" controller and insert the html
+
+
+Yet to do:
+1) make components
+2) helper functions
