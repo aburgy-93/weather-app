@@ -587,6 +587,7 @@ const weatherIcon = document.querySelector(".weather-icon");
 const weatherDetails = document.querySelector(".details");
 const forecastContainer = document.querySelector(".forecast-container");
 const _errorMessage = "Could not find that location. Please try another one!";
+const render = function() {};
 const renderError = function(msg = _errorMessage) {
     const markup = `
     <div class="error">
@@ -660,17 +661,7 @@ const loadDailyForecast = async function() {
         console.log(err);
         throw new Error(`Country not found (${err.message})`);
     }
-}; // const formSubmit = function () {
- //   const textValue = textArea.value;
- //   if (!textValue) return;
- //   getWeatherData(textValue);
- // };
- // btnSubmit.addEventListener("click", function (e) {
- //   e.preventDefault();
- //   formSubmit();
- //   weatherDiv.style.display = "block";
- //   textArea.value = "";
- // });
+};
 
 },{"./model":"dEDha","./views/searchView":"kBGZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dEDha":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -683,6 +674,14 @@ const state = {
     current: {},
     condition: {},
     forecastResults: []
+};
+const loadSearchResults = async function(query) {
+    if (!query) return;
+    state.query = query;
+    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${query}&hour&days=3&aqi=no&alerts=no`);
+    const data = await response.json();
+    console.log(data);
+    createWeatherObject(data);
 };
 const createWeatherObject = function(data) {
     const { current  } = data;
@@ -705,13 +704,6 @@ const createWeatherObject = function(data) {
     createForcastObject(forecastday);
     console.log(state);
 };
-const loadSearchResults = async function(query) {
-    if (!query) return;
-    state.query = query;
-    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${query}&days=3&aqi=no&alerts=no`);
-    const data = await response.json();
-    createWeatherObject(data);
-};
 const createForcastObject = function(data) {
     state.forecastResults = data.map((data)=>{
         const forecastDates = new Date(data.date);
@@ -724,7 +716,8 @@ const createForcastObject = function(data) {
             lowtemp_f: data.day.mintemp_f,
             dayText: data.day.condition.text,
             dayIcon: data.day.condition.icon,
-            date: forecastDates.toLocaleDateString("en-GB", dateFormat)
+            date: forecastDates.toLocaleDateString("en-GB", dateFormat),
+            hourForecast: data.hour
         };
     });
 };

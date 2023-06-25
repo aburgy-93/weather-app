@@ -1,5 +1,6 @@
 import * as model from "./model";
 import searchView from "./views/searchView.js";
+import weatherView from "./views/weatherView";
 
 const controlSearchResults = async function () {
   try {
@@ -16,8 +17,17 @@ const controlSearchResults = async function () {
   }
 };
 
+const controlWeather = async function () {
+  try {
+    weatherView.render(model.state);
+  } catch (err) {
+    weatherView.renderError();
+  }
+};
+
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
+  weatherView.addHandlerRender(controlWeather);
 };
 
 init();

@@ -578,6 +578,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _model = require("./model");
 var _searchViewJs = require("./views/searchView.js");
 var _searchViewJsDefault = parcelHelpers.interopDefault(_searchViewJs);
+var _weatherView = require("./views/weatherView");
+var _weatherViewDefault = parcelHelpers.interopDefault(_weatherView);
 const controlSearchResults = async function() {
     try {
         // 1) Get search query from searchView
@@ -591,11 +593,222 @@ const controlSearchResults = async function() {
         console.log(err);
     }
 };
+const controlWeather = async function() {
+    try {
+        (0, _weatherViewDefault.default).render(_model.state);
+    } catch (err) {
+        (0, _weatherViewDefault.default).renderError();
+    }
+};
 const init = function() {
     (0, _searchViewJsDefault.default).addHandlerSearch(controlSearchResults);
+    (0, _weatherViewDefault.default).addHandlerRender(controlWeather);
 };
 init();
 
-},{"./model":"dEDha","./views/searchView.js":"kBGZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kbttP","gCE4p"], "gCE4p", "parcelRequirebbde")
+},{"./model":"dEDha","./views/searchView.js":"kBGZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/weatherView":"aihG3"}],"dEDha":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "state", ()=>state);
+parcelHelpers.export(exports, "loadSearchResults", ()=>loadSearchResults);
+const state = {
+    query: "",
+    location: {},
+    current: {},
+    condition: {},
+    forecastResults: []
+};
+const loadSearchResults = async function(query) {
+    if (!query) return;
+    state.query = query;
+    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${query}&hour&days=3&aqi=no&alerts=no`);
+    const data = await response.json();
+    console.log(data);
+    createWeatherObject(data);
+};
+const createWeatherObject = function(data) {
+    const { current  } = data;
+    const { condition  } = data.current;
+    const { forecastday  } = data.forecast;
+    const { location  } = data;
+    state.current = {
+        currTempF: current.feelslike_f,
+        currWeather: current.condition.text,
+        humidity: current.humidity,
+        windSpeed: current.wind_mph
+    };
+    state.condition = {
+        conditionIcon: condition.icon
+    };
+    state.location = {
+        name: location.name,
+        region: location.region
+    };
+    createForcastObject(forecastday);
+    console.log(state);
+};
+const createForcastObject = function(data) {
+    state.forecastResults = data.map((data)=>{
+        const forecastDates = new Date(data.date);
+        forecastDates.setDate(forecastDates.getDate() + 1);
+        const dateFormat = {
+            weekday: "short"
+        };
+        return {
+            hightemp_f: data.day.maxtemp_f,
+            lowtemp_f: data.day.mintemp_f,
+            dayText: data.day.condition.text,
+            dayIcon: data.day.condition.icon,
+            date: forecastDates.toLocaleDateString("en-GB", dateFormat),
+            hourForecast: data.hour
+        };
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"kBGZg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class SearchView {
+    _parentEl = document.querySelector(".search");
+    getQuery() {
+        const query = this._parentEl.querySelector(".textarea").value;
+        this._clearInput();
+        return query;
+    }
+    _clearInput() {
+        this._parentEl.querySelector(".textarea").value = "";
+    }
+    addHandlerSearch(handler) {
+        this._parentEl.addEventListener("submit", function(e) {
+            e.preventDefault();
+            handler();
+        });
+    }
+}
+exports.default = new SearchView();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aihG3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _model = require("../model");
+var _searchView = require("./searchView");
+var _searchViewDefault = parcelHelpers.interopDefault(_searchView);
+"use strict";
+class WeatherView {
+    weatherDiv = document.querySelector(".weather-div");
+    weatherInfo = document.querySelector(".weaither-info");
+    weatherDetails = document.querySelector(".details");
+    forecastContainer = document.querySelector(".forecast-container");
+    _errorMessage = "Could not find that location. Please try another one!";
+    addHandlerRender(handler) {}
+    render = function() {};
+    renderError = function(msg = _errorMessage) {
+        markup = `
+    <div class="error">
+      <div>
+        <ion-icon name="warning"></ion-icon>
+      </div>
+      <p>${msg}</p>
+    </div>
+  `;
+        weatherDiv.innerHTML = "";
+        weatherDiv.insertAdjacentHTML("beforebegin", markup);
+    };
+    _generateWeatherMarkup = async function(local) {
+        try {
+            const markup1 = `
+      <div class="weaither-info">
+        <img src="${_model.state.condition.conditionIcon}" class="weather-icon">
+        <h1 class="location-heading">${_model.state.location.name}, ${_model.state.location.region}</h1>
+        <h2 class="weather-description">${_model.state.current.currWeather}</h2>
+        <h2 class="temp">${_model.state.current.currTempF}<span>&#8457;</span></h2>
+      </div>
+    `;
+            weatherInfo.textContent = "";
+            weatherInfo.insertAdjacentHTML("afterbegin", markup1);
+            const detailsMarkup = `
+        <div class="col left">
+        <img src="/humidity.5ee5b96c.png" alt="">
+        <div class="condition-div">
+          <div class="condition percent">
+            <p class="humidity">${_model.state.current.humidity}%</p>
+          </div>
+          <p>Humidity</p>
+        </div>
+      </div>
+      <div class="col">
+        <img src="/wind.b8bb298f.png" alt="">
+        <div class="condition-div">
+          <div class="condition speed">
+            <p class="wind">${_model.state.current.windSpeed}</p><span>mph</span>
+          </div>
+          <p class="wind-speed">Wind Speed</p>
+        </div>
+      </div>
+    `;
+            weatherDetails.textContent = "";
+            weatherDetails.insertAdjacentHTML("afterbegin", detailsMarkup);
+            _generateForecastMarkup();
+        } catch (err) {
+            // throw new Error(renderError(err));
+            // throw renderError(err);
+            renderError();
+        }
+    };
+    _generateForecastMarkup = async function() {
+        try {
+            const data = _model.state.forecastResults;
+            if (!data) return;
+            const markup1 = data.map((day)=>{
+                return `
+            <div class="day day-">
+              <p>${day.date}</p>
+              <img src="${day.dayIcon}" alt="">
+              <p>${Math.trunc(day.hightemp_f)}<span>&#8457;</span></p>
+              <p>${Math.trunc(day.lowtemp_f)}<span>&#8457;</span></p>
+            </div>
+          `;
+            }).join("");
+            forecastContainer.textContent = "";
+            forecastContainer.insertAdjacentHTML("afterbegin", markup1);
+        } catch (err) {
+            console.log(err);
+            throw new Error(`Country not found (${err.message})`);
+        }
+    };
+}
+exports.default = new WeatherView();
+
+},{"../model":"dEDha","./searchView":"kBGZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kbttP","gCE4p"], "gCE4p", "parcelRequirebbde")
 
 //# sourceMappingURL=index.bafbf13d.js.map

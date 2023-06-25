@@ -6,6 +6,19 @@ export const state = {
   forecastResults: [],
 };
 
+export const loadSearchResults = async function (query) {
+  if (!query) return;
+  state.query = query;
+  const response = await fetch(
+    `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${query}&hour&days=3&aqi=no&alerts=no`
+    // `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${query}&hour&aqi=no&alerts=no`
+    // `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=&days=3&aqi=no&alerts=no`
+  );
+  const data = await response.json();
+  console.log(data);
+  createWeatherObject(data);
+};
+
 const createWeatherObject = function (data) {
   const { current } = data;
   const { condition } = data.current;
@@ -32,17 +45,6 @@ const createWeatherObject = function (data) {
   console.log(state);
 };
 
-export const loadSearchResults = async function (query) {
-  if (!query) return;
-  state.query = query;
-  const response = await fetch(
-    `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=${query}&days=3&aqi=no&alerts=no`
-    // `http://api.weatherapi.com/v1/forecast.json?key=0d3f35d4d5b94baba11203207230604&q&q=&days=3&aqi=no&alerts=no`
-  );
-  const data = await response.json();
-  createWeatherObject(data);
-};
-
 const createForcastObject = function (data) {
   state.forecastResults = data.map((data) => {
     const forecastDates = new Date(data.date);
@@ -57,6 +59,7 @@ const createForcastObject = function (data) {
       dayText: data.day.condition.text,
       dayIcon: data.day.condition.icon,
       date: forecastDates.toLocaleDateString("en-GB", dateFormat),
+      hourForecast: data.hour,
     };
   });
 };
