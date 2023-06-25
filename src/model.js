@@ -26,7 +26,7 @@ const createWeatherObject = function (data) {
   const { location } = data;
 
   state.current = {
-    currTempF: current.feelslike_f,
+    currTempF: current.temp_f,
     currWeather: current.condition.text,
     humidity: current.humidity,
     windSpeed: current.wind_mph,

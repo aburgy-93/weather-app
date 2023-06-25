@@ -12,22 +12,14 @@ const controlSearchResults = async function () {
     // 2) Load search results
     await model.loadSearchResults(query);
     // 3) Render results
+    weatherView.render(model.state);
   } catch (err) {
     console.log(err);
   }
 };
 
-const controlWeather = async function () {
-  try {
-    weatherView.render(model.state);
-  } catch (err) {
-    weatherView.renderError();
-  }
-};
-
 const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
-  weatherView.addHandlerRender(controlWeather);
 };
 
 init();

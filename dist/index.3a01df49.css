@@ -143,13 +143,54 @@ button img {
   font-size: 1.6rem;
 }
 
+.hourly-container {
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  border-radius: 2rem;
+  max-width: 48rem;
+  margin: 5rem auto 0;
+  padding: 1.6rem 2.4rem;
+}
+
+.title {
+  align-items: start;
+  display: flex;
+}
+
+.hourly-title, .forecast-title {
+  margin-bottom: .8rem;
+  margin-left: .5rem;
+  font-size: 1.4rem;
+}
+
+.svg {
+  filter: invert() sepia() saturate(2%) hue-rotate(324deg) brightness(105%) contrast(101%);
+  width: 5%;
+}
+
+.hourly {
+  flex-direction: row;
+  width: 25%;
+  list-style: none;
+  display: flex;
+}
+
+.hourImg {
+  width: 75%;
+  padding: 1rem 0;
+}
+
+.hour, .hourlyTemp {
+  font-size: 1.4rem;
+}
+
 .forecast {
   color: #fff;
   text-align: center;
   background: linear-gradient(135deg, #00feba, #5b548a);
   border-radius: 2rem;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   max-width: 48rem;
   margin: 5rem auto 0;
   padding: 2.4rem 3.6rem;

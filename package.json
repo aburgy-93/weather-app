@@ -19,5 +19,8 @@
   "homepage": "https://github.com/aburgy-93/weather-app#readme",
   "devDependencies": {
     "parcel": "^2.9.2"
+  },
+  "dependencies": {
+    "ionic": "^5.4.16"
   }
 }
