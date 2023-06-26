@@ -585,7 +585,6 @@ const controlSearchResults = async function() {
         // 1) Get search query from searchView
         const query = (0, _searchViewJsDefault.default).getQuery();
         if (!query) return;
-        console.log(query);
         // 2) Load search results
         await _model.loadSearchResults(query);
         // 3) Render results
@@ -609,7 +608,8 @@ const state = {
     location: {},
     current: {},
     condition: {},
-    forecastResults: []
+    forecastResults: [],
+    hourlyForcast: []
 };
 const loadSearchResults = async function(query) {
     if (!query) return;
@@ -638,7 +638,7 @@ const createWeatherObject = function(data) {
         region: location.region
     };
     createForcastObject(forecastday);
-    console.log(state);
+    createHourlyForecastObject(forecastday);
 };
 const createForcastObject = function(data) {
     state.forecastResults = data.map((data)=>{
@@ -656,6 +656,16 @@ const createForcastObject = function(data) {
             hourForecast: data.hour
         };
     });
+};
+const createHourlyForecastObject = function(data) {
+    state.hourlyForcast = data[0].hour.map((data)=>{
+        return {
+            time: data.time.slice(11),
+            condition: data.condition.icon,
+            temp: data.temp_f
+        };
+    });
+    console.log(state.hourlyForcast);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
@@ -722,6 +732,7 @@ class WeatherView {
     weatherInfo = document.querySelector(".weaither-info");
     weatherDetails = document.querySelector(".details");
     forecastContainer = document.querySelector(".forecast-container");
+    hourContainer = document.querySelector(".hourly");
     _errorMessage = "Could not find that location. Please try another one!";
     render = function(data) {
         if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
@@ -729,14 +740,16 @@ class WeatherView {
         const markupCurrWeather = this._generateCurrentWeatherMarkup();
         const markupCurrWeatherDetails = this._generateCurrWeatherDetailsMarkup();
         const markupForecast = this._generateForecastMarkup();
+        const hourlyMarkup = this._generateHourlyForecast();
         this.weatherInfo.textContent = "";
         this.weatherDetails.textContent = "";
         this.weatherDiv.classList.toggle("hidden");
         this.forecastContainer.textContent = "";
+        this.hourContainer.textContent = "";
         this.weatherInfo.insertAdjacentHTML("afterbegin", markupCurrWeather);
         this.weatherDetails.insertAdjacentHTML("afterbegin", markupCurrWeatherDetails);
         this.forecastContainer.insertAdjacentHTML("afterbegin", markupForecast);
-        this._generateHourlyForecast();
+        this.hourContainer.insertAdjacentHTML("afterbegin", hourlyMarkup);
     };
     renderError = function(msg = _errorMessage) {
         markup = `
@@ -794,7 +807,17 @@ class WeatherView {
           `;
         }).join("");
     }
-    _generateHourlyForecast() {}
+    _generateHourlyForecast() {
+        return this._data.hourlyForcast.map((data)=>{
+            return `
+        <li class="preview">
+          <p class="hour">${data.time}</p>
+          <img src="${data.condition}" alt="" class="hourImg">
+          <p class="hourlyTemp">${data.temp}<span>&#8457;</span></p>
+        </li>
+      `;
+        }).join("");
+    }
 }
 exports.default = new WeatherView();
 

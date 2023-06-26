@@ -75,7 +75,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* TEMPORARY */
   width: 90%;
   max-width: 47rem;
   background: linear-gradient(135deg, #00feba, #5b548a);
@@ -236,21 +235,27 @@ button img {
     brightness(105%) contrast(101%);
 }
 
+.preview {
+  padding: 0rem 1rem;
+}
+
 .hourly {
   display: flex;
   flex-direction: row;
   list-style: none;
-  width: 25%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .hourImg {
   width: 75%;
-  padding: 1rem 0rem;
 }
 
 .hour,
 .hourlyTemp {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 /* forecast */
@@ -289,5 +294,5 @@ button img {
 }
 
 .day > img {
-  width: 100%;
+  width: 75%;
 }

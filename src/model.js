@@ -4,6 +4,7 @@ export const state = {
   current: {},
   condition: {},
   forecastResults: [],
+  hourlyForcast: [],
 };
 
 export const loadSearchResults = async function (query) {
@@ -41,8 +42,7 @@ const createWeatherObject = function (data) {
     region: location.region,
   };
   createForcastObject(forecastday);
-
-  console.log(state);
+  createHourlyForecastObject(forecastday);
 };
 
 const createForcastObject = function (data) {
@@ -62,4 +62,15 @@ const createForcastObject = function (data) {
       hourForecast: data.hour,
     };
   });
+};
+
+const createHourlyForecastObject = function (data) {
+  state.hourlyForcast = data[0].hour.map((data) => {
+    return {
+      time: data.time.slice(11),
+      condition: data.condition.icon,
+      temp: data.temp_f,
+    };
+  });
+  console.log(state.hourlyForcast);
 };

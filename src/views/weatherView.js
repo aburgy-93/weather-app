@@ -8,6 +8,7 @@ class WeatherView {
   weatherInfo = document.querySelector(".weaither-info");
   weatherDetails = document.querySelector(".details");
   forecastContainer = document.querySelector(".forecast-container");
+  hourContainer = document.querySelector(".hourly");
 
   _errorMessage = "Could not find that location. Please try another one!";
 
@@ -19,19 +20,20 @@ class WeatherView {
     const markupCurrWeather = this._generateCurrentWeatherMarkup();
     const markupCurrWeatherDetails = this._generateCurrWeatherDetailsMarkup();
     const markupForecast = this._generateForecastMarkup();
+    const hourlyMarkup = this._generateHourlyForecast();
 
     this.weatherInfo.textContent = "";
     this.weatherDetails.textContent = "";
     this.weatherDiv.classList.toggle("hidden");
     this.forecastContainer.textContent = "";
+    this.hourContainer.textContent = "";
     this.weatherInfo.insertAdjacentHTML("afterbegin", markupCurrWeather);
     this.weatherDetails.insertAdjacentHTML(
       "afterbegin",
       markupCurrWeatherDetails
     );
     this.forecastContainer.insertAdjacentHTML("afterbegin", markupForecast);
-
-    this._generateHourlyForecast();
+    this.hourContainer.insertAdjacentHTML("afterbegin", hourlyMarkup);
   };
 
   renderError = function (msg = _errorMessage) {
@@ -96,7 +98,19 @@ class WeatherView {
       .join("");
   }
 
-  _generateHourlyForecast() {}
+  _generateHourlyForecast() {
+    return this._data.hourlyForcast
+      .map((data) => {
+        return `
+        <li class="preview">
+          <p class="hour">${data.time}</p>
+          <img src="${data.condition}" alt="" class="hourImg">
+          <p class="hourlyTemp">${data.temp}<span>&#8457;</span></p>
+        </li>
+      `;
+      })
+      .join("");
+  }
 }
 
 export default new WeatherView();
