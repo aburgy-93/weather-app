@@ -70,7 +70,7 @@ button img {
 }
 
 .weather-icon {
-  width: 12rem;
+  width: 11rem;
   margin-top: 1rem;
 }
 
@@ -149,7 +149,7 @@ button img {
   background: linear-gradient(135deg, #00feba, #5b548a);
   border-radius: 2rem;
   max-width: 48rem;
-  margin: 5rem auto 0;
+  margin: 3.2rem auto 0;
   padding: 1.6rem 2.4rem;
 }
 
@@ -166,7 +166,7 @@ button img {
 
 .svg {
   filter: invert() sepia() saturate(2%) hue-rotate(324deg) brightness(105%) contrast(101%);
-  width: 5%;
+  width: 18px;
 }
 
 .preview {
@@ -177,6 +177,7 @@ button img {
   white-space: nowrap;
   flex-direction: row;
   width: 100%;
+  padding: .8rem 0;
   list-style: none;
   display: flex;
   overflow-x: auto;
@@ -184,7 +185,7 @@ button img {
 }
 
 .hourImg {
-  width: 75%;
+  width: 4.4rem;
 }
 
 .hour, .hourlyTemp {
@@ -198,7 +199,7 @@ button img {
   border-radius: 2rem;
   flex-direction: column;
   max-width: 48rem;
-  margin: 5rem auto 0;
+  margin: 3.2rem auto 0;
   padding: 2.4rem 3.6rem;
   display: flex;
 }

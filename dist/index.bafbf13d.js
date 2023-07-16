@@ -723,54 +723,23 @@ exports.default = new SearchView();
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aihG3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _model = require("../model");
-var _searchView = require("./searchView");
-var _searchViewDefault = parcelHelpers.interopDefault(_searchView);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
 "use strict";
-class WeatherView {
+class WeatherView extends (0, _viewDefault.default) {
     weatherDiv = document.querySelector(".weather-div");
     weatherInfo = document.querySelector(".weaither-info");
     weatherDetails = document.querySelector(".details");
     forecastContainer = document.querySelector(".forecast-container");
     hourContainer = document.querySelector(".hourly");
-    _errorMessage = "Could not find that location. Please try another one!";
-    render = function(data) {
-        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
-        this._data = data;
-        const markupCurrWeather = this._generateCurrentWeatherMarkup();
-        const markupCurrWeatherDetails = this._generateCurrWeatherDetailsMarkup();
-        const markupForecast = this._generateForecastMarkup();
-        const hourlyMarkup = this._generateHourlyForecast();
-        this.weatherInfo.textContent = "";
-        this.weatherDetails.textContent = "";
-        this.weatherDiv.classList.toggle("hidden");
-        this.forecastContainer.textContent = "";
-        this.hourContainer.textContent = "";
-        this.weatherInfo.insertAdjacentHTML("afterbegin", markupCurrWeather);
-        this.weatherDetails.insertAdjacentHTML("afterbegin", markupCurrWeatherDetails);
-        this.forecastContainer.insertAdjacentHTML("afterbegin", markupForecast);
-        this.hourContainer.insertAdjacentHTML("afterbegin", hourlyMarkup);
-    };
-    renderError = function(msg = _errorMessage) {
-        markup = `
-    <div class="error">
-      <div>
-        <ion-icon name="warning"></ion-icon>
-      </div>
-      <p>${msg}</p>
-    </div>
-  `;
-        weatherDiv.innerHTML = "";
-        weatherDiv.insertAdjacentHTML("beforebegin", markup);
-    };
     _generateCurrentWeatherMarkup() {
         return `
-    <div class="weaither-info">
+    
       <img src="${this._data.condition.conditionIcon}" class="weather-icon">
       <h1 class="location-heading">${this._data.location.name}, ${this._data.location.region}</h1>
       <h2 class="weather-description">${this._data.current.currWeather}</h2>
       <h2 class="temp">${this._data.current.currTempF}<span>&#8457;</span></h2>
-    </div>
+    
     `;
     }
     _generateCurrWeatherDetailsMarkup() {
@@ -821,6 +790,44 @@ class WeatherView {
 }
 exports.default = new WeatherView();
 
-},{"../model":"dEDha","./searchView":"kBGZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kbttP","gCE4p"], "gCE4p", "parcelRequirebbde")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"jeqIl"}],"jeqIl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    _errorMessage = "Could not find that location. Please try another one!";
+    // Refactoring needed
+    render(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        this._data = data;
+        const markupCurrWeather = this._generateCurrentWeatherMarkup();
+        const markupCurrWeatherDetails = this._generateCurrWeatherDetailsMarkup();
+        const markupForecast = this._generateForecastMarkup();
+        const hourlyMarkup = this._generateHourlyForecast();
+        this.weatherInfo.textContent = "";
+        this.weatherDetails.textContent = "";
+        this.weatherDiv.classList.toggle("hidden");
+        this.forecastContainer.textContent = "";
+        this.hourContainer.textContent = "";
+        this.weatherInfo.insertAdjacentHTML("afterbegin", markupCurrWeather);
+        this.weatherDetails.insertAdjacentHTML("afterbegin", markupCurrWeatherDetails);
+        this.forecastContainer.insertAdjacentHTML("afterbegin", markupForecast);
+        this.hourContainer.insertAdjacentHTML("afterbegin", hourlyMarkup);
+    }
+    renderError(msg = _errorMessage) {
+        markup = `
+      <div class="error">
+        <div>
+          <ion-icon name="warning"></ion-icon>
+        </div>
+        <p>${msg}</p>
+      </div>
+    `;
+        weatherDiv.innerHTML = "";
+        weatherDiv.insertAdjacentHTML("beforebegin", markup);
+    }
+}
+exports.default = View;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kbttP","gCE4p"], "gCE4p", "parcelRequirebbde")
 
 //# sourceMappingURL=index.bafbf13d.js.map
