@@ -580,6 +580,12 @@ var _searchViewJs = require("./views/searchView.js");
 var _searchViewJsDefault = parcelHelpers.interopDefault(_searchViewJs);
 var _weatherView = require("./views/weatherView");
 var _weatherViewDefault = parcelHelpers.interopDefault(_weatherView);
+var _weatherDetails = require("./views/weatherDetails");
+var _weatherDetailsDefault = parcelHelpers.interopDefault(_weatherDetails);
+var _weatherHourlyView = require("./views/WeatherHourlyView");
+var _weatherHourlyViewDefault = parcelHelpers.interopDefault(_weatherHourlyView);
+var _weatherForecastView = require("./views/WeatherForecastView");
+var _weatherForecastViewDefault = parcelHelpers.interopDefault(_weatherForecastView);
 const controlSearchResults = async function() {
     try {
         // 1) Get search query from searchView
@@ -588,7 +594,11 @@ const controlSearchResults = async function() {
         // 2) Load search results
         await _model.loadSearchResults(query);
         // 3) Render results
+        (0, _weatherViewDefault.default).toggle();
         (0, _weatherViewDefault.default).render(_model.state);
+        (0, _weatherDetailsDefault.default).render(_model.state);
+        (0, _weatherHourlyViewDefault.default).render(_model.state);
+        (0, _weatherForecastViewDefault.default).render(_model.state);
     } catch (err) {
         console.log(err);
     }
@@ -598,7 +608,7 @@ const init = function() {
 };
 init();
 
-},{"./model":"dEDha","./views/searchView.js":"kBGZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/weatherView":"aihG3"}],"dEDha":[function(require,module,exports) {
+},{"./model":"dEDha","./views/searchView.js":"kBGZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/weatherView":"aihG3","./views/weatherDetails":"gJIWi","./views/WeatherHourlyView":"4dZhh","./views/WeatherForecastView":"j9z9u"}],"dEDha":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "state", ()=>state);
@@ -727,22 +737,67 @@ var _view = require("./View");
 var _viewDefault = parcelHelpers.interopDefault(_view);
 "use strict";
 class WeatherView extends (0, _viewDefault.default) {
-    weatherDiv = document.querySelector(".weather-div");
-    weatherInfo = document.querySelector(".weaither-info");
-    weatherDetails = document.querySelector(".details");
-    forecastContainer = document.querySelector(".forecast-container");
-    hourContainer = document.querySelector(".hourly");
-    _generateCurrentWeatherMarkup() {
+    _parentElement = document.querySelector(".weather-div");
+    // weatherInfo = document.querySelector(".weaither-info");
+    // weatherDetails = document.querySelector(".details");
+    // forecastContainer = document.querySelector(".forecast-container");
+    // hourContainer = document.querySelector(".hourly");
+    toggle() {
+        this._parentElement.classList.toggle("hidden");
+    }
+    _generateMarkup() {
         return `
     
       <img src="${this._data.condition.conditionIcon}" class="weather-icon">
       <h1 class="location-heading">${this._data.location.name}, ${this._data.location.region}</h1>
       <h2 class="weather-description">${this._data.current.currWeather}</h2>
       <h2 class="temp">${this._data.current.currTempF}<span>&#8457;</span></h2>
-    
     `;
     }
-    _generateCurrWeatherDetailsMarkup() {
+}
+exports.default = new WeatherView();
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"jeqIl"}],"jeqIl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+class View {
+    _errorMessage = "Could not find that location. Please try another one!";
+    _data;
+    // Refactoring needed
+    render(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
+        this._data = data;
+        const markup1 = this._generateMarkup();
+        // this._clear();
+        this._parentElement.insertAdjacentHTML("afterbegin", markup1);
+    }
+    // _clear() {
+    //   this._parentElement.innerHTML = "";
+    // }
+    renderError(msg = _errorMessage) {
+        markup = `
+      <div class="error">
+        <div>
+          <ion-icon name="warning"></ion-icon>
+        </div>
+        <p>${msg}</p>
+      </div>
+    `;
+        weatherDiv.innerHTML = "";
+        weatherDiv.insertAdjacentHTML("beforebegin", markup);
+    }
+}
+exports.default = View;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gJIWi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+"use strict";
+class WeatherDetails extends (0, _viewDefault.default) {
+    _parentElement = document.querySelector(".details");
+    _generateMarkup() {
         return `
       <div class="col left">
         <img src="/humidity.5ee5b96c.png" alt="">
@@ -764,19 +819,18 @@ class WeatherView extends (0, _viewDefault.default) {
       </div>
     `;
     }
-    _generateForecastMarkup() {
-        return this._data.forecastResults.map((day)=>{
-            return `
-            <div class="day day-">
-              <p>${day.date}</p>
-              <img src="${day.dayIcon}" alt="">
-              <p>${Math.trunc(day.hightemp_f)}<span>&#8457;</span></p>
-              <p>${Math.trunc(day.lowtemp_f)}<span>&#8457;</span></p>
-            </div>
-          `;
-        }).join("");
-    }
-    _generateHourlyForecast() {
+}
+exports.default = new WeatherDetails();
+
+},{"./View":"jeqIl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4dZhh":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+"use strict";
+class WeatherHourly extends (0, _viewDefault.default) {
+    _parentElement = document.querySelector(".hourly");
+    _generateMarkup() {
         return this._data.hourlyForcast.map((data)=>{
             return `
         <li class="preview">
@@ -788,46 +842,31 @@ class WeatherView extends (0, _viewDefault.default) {
         }).join("");
     }
 }
-exports.default = new WeatherView();
+exports.default = new WeatherHourly();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View":"jeqIl"}],"jeqIl":[function(require,module,exports) {
+},{"./View":"jeqIl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j9z9u":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-class View {
-    _errorMessage = "Could not find that location. Please try another one!";
-    // Refactoring needed
-    render(data) {
-        if (!data || Array.isArray(data) && data.length === 0) return this.renderError();
-        this._data = data;
-        const markupCurrWeather = this._generateCurrentWeatherMarkup();
-        const markupCurrWeatherDetails = this._generateCurrWeatherDetailsMarkup();
-        const markupForecast = this._generateForecastMarkup();
-        const hourlyMarkup = this._generateHourlyForecast();
-        this.weatherInfo.textContent = "";
-        this.weatherDetails.textContent = "";
-        this.weatherDiv.classList.toggle("hidden");
-        this.forecastContainer.textContent = "";
-        this.hourContainer.textContent = "";
-        this.weatherInfo.insertAdjacentHTML("afterbegin", markupCurrWeather);
-        this.weatherDetails.insertAdjacentHTML("afterbegin", markupCurrWeatherDetails);
-        this.forecastContainer.insertAdjacentHTML("afterbegin", markupForecast);
-        this.hourContainer.insertAdjacentHTML("afterbegin", hourlyMarkup);
-    }
-    renderError(msg = _errorMessage) {
-        markup = `
-      <div class="error">
-        <div>
-          <ion-icon name="warning"></ion-icon>
-        </div>
-        <p>${msg}</p>
-      </div>
-    `;
-        weatherDiv.innerHTML = "";
-        weatherDiv.insertAdjacentHTML("beforebegin", markup);
+var _view = require("./View");
+var _viewDefault = parcelHelpers.interopDefault(_view);
+"use strict";
+class ForcastView extends (0, _viewDefault.default) {
+    _parentElement = document.querySelector(".forecast-container");
+    _generateMarkup() {
+        return this._data.forecastResults.map((day)=>{
+            return `
+            <div class="day day-">
+              <p>${day.date}</p>
+              <img src="${day.dayIcon}" alt="">
+              <p>${Math.trunc(day.hightemp_f)}<span>&#8457;</span></p>
+              <p>${Math.trunc(day.lowtemp_f)}<span>&#8457;</span></p>
+            </div>
+          `;
+        }).join("");
     }
 }
-exports.default = View;
+exports.default = new ForcastView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kbttP","gCE4p"], "gCE4p", "parcelRequirebbde")
+},{"./View":"jeqIl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kbttP","gCE4p"], "gCE4p", "parcelRequirebbde")
 
 //# sourceMappingURL=index.bafbf13d.js.map

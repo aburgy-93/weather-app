@@ -1,5 +1,6 @@
 export default class View {
   _errorMessage = "Could not find that location. Please try another one!";
+  _data;
 
   // Refactoring needed
   render(data) {
@@ -7,24 +8,15 @@ export default class View {
       return this.renderError();
 
     this._data = data;
-    const markupCurrWeather = this._generateCurrentWeatherMarkup();
-    const markupCurrWeatherDetails = this._generateCurrWeatherDetailsMarkup();
-    const markupForecast = this._generateForecastMarkup();
-    const hourlyMarkup = this._generateHourlyForecast();
+    const markup = this._generateMarkup();
 
-    this.weatherInfo.textContent = "";
-    this.weatherDetails.textContent = "";
-    this.weatherDiv.classList.toggle("hidden");
-    this.forecastContainer.textContent = "";
-    this.hourContainer.textContent = "";
-    this.weatherInfo.insertAdjacentHTML("afterbegin", markupCurrWeather);
-    this.weatherDetails.insertAdjacentHTML(
-      "afterbegin",
-      markupCurrWeatherDetails
-    );
-    this.forecastContainer.insertAdjacentHTML("afterbegin", markupForecast);
-    this.hourContainer.insertAdjacentHTML("afterbegin", hourlyMarkup);
+    // this._clear();
+    this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
+
+  // _clear() {
+  //   this._parentElement.innerHTML = "";
+  // }
 
   renderError(msg = _errorMessage) {
     markup = `
