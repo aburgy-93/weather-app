@@ -16,9 +16,9 @@ const controlSearchResults = async function () {
     // 3) Render results
     weatherView.toggle();
     weatherView.render(model.state);
-    weatherDetails.render(model.state);
-    WeatherHourlyView.render(model.state);
-    WeatherForecastView.render(model.state);
+    // weatherDetails.render(model.state);
+    // WeatherHourlyView.render(model.state);
+    // WeatherForecastView.render(model.state);
   } catch (err) {
     console.log(err);
   }

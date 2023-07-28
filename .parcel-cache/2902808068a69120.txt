@@ -40,7 +40,7 @@
 106C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm5\internal\operators\skipLast.js.map133321954116878471 0
 141C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\node\TypeSelector.js133316978069180638 0
 87C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\htmlnano\docs\package.json133316978916350120 0
-52C:\Users\alex\OneDrive\Desktop\weather-app-main\dist133348907553328938 1
+52C:\Users\alex\OneDrive\Desktop\weather-app-main\dist133349777530693644 1
 75C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lodash\fp\T.js133321954082980009 0
 104C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm2015\internal\operators\min.js.map133321954108580663 0
 92C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\caniuse-lite\data\regions\BE.js133316978597680360 0
@@ -91,10 +91,10 @@
 98C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\src\internal\operators\filter.ts133321954142287267 0
 75C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\ssh-config\lib133321954045527310 1
 132C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\msgpackr-extract\node_modules\.bin\node-gyp-build-optional-packages.cmd133316979003451341 0
-72C:\Users\alex\OneDrive\Desktop\weather-app-main\src\views\weatherView.js133348904514752370 0
+72C:\Users\alex\OneDrive\Desktop\weather-app-main\src\views\weatherView.js133349777530264793 0
 122C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\ansi-escapes\node_modules\type-fest\source\promise-value.d.ts133321954053925592 0
 94C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\util\subscribeToPromise.d.ts133321954173202024 0
-56C:\Users\alex\OneDrive\Desktop\weather-app-main\doto.txt133318537576109512 0
+56C:\Users\alex\OneDrive\Desktop\weather-app-main\doto.txt133348909009773794 0
 93C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\internal\operators\mapTo.js133321954070583168 0
 51C:\Users\alex\OneDrive\Desktop\weather-app-main\img133316977916041075 1
 93C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\ionic\lib\project\vue\build.d.ts133321954061869441 0
@@ -108,14 +108,14 @@
 66C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@lmdb133321954182801961 1
 68C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\is-glob133316978935338404 1
 107C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm5\internal\operators\multicast.js.map133321954108720294 0
-58C:\Users\alex\OneDrive\Desktop\weather-app-main\index.html133348846336333056 0
+58C:\Users\alex\OneDrive\Desktop\weather-app-main\index.html133349733194537091 0
 70C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\cli-width133321954048150610 1
 100C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lmdb\node_modules\msgpackr\package.json133316978982470563 0
 59C:\Users\alex\OneDrive\Desktop\weather-app-main\queries.css133317840228718023 0
 80C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm2015\fetch133321954104231018 1
 91C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lodash._bindcallback\README.md133321954038768025 0
 83C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\http-errors\HISTORY.md133321954041832118 0
-57C:\Users\alex\OneDrive\Desktop\weather-app-main\README.md133340000476490135 0
+57C:\Users\alex\OneDrive\Desktop\weather-app-main\README.md133348910216363728 0
 107C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm5\internal\operators\mergeScan.js.map133321954108470957 0
 105C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm2015\internal\operators\last.js.map133321954106945042 0
 73C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\svgo\LICENSE133316979060249320 0
@@ -144,7 +144,7 @@
 85C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\safe-buffer\package.json133316979048502760 0
 100C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\utility-types\dist\utility-types.js.map133316979095128829 0
 84C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\call-bind\.eslintignore133321954036833205 0
-65C:\Users\alex\OneDrive\Desktop\weather-app-main\src\controller.js133348902918664640 0
+65C:\Users\alex\OneDrive\Desktop\weather-app-main\src\controller.js133349740692667013 0
 73C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\pac-resolver133321954053606440 1
 79C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\source-map133316978258610755 1
 69C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\nice-try133321954042465503 1
@@ -170,7 +170,7 @@
 90C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\call-bind\.github\FUNDING.yml133321954049886126 0
 100C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\internal\operators\bufferWhen.d.ts133321954133327038 0
 80C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\cli-cursor\index.js133321954040273997 0
-65C:\Users\alex\OneDrive\Desktop\weather-app-main\src\views\View.js133348907550357542 0
+65C:\Users\alex\OneDrive\Desktop\weather-app-main\src\views\View.js133349740200236963 0
 111C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@ionic\utils-object\node_modules\tslib\LICENSE.txt133321954050255045 0
 93C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\operator\publishReplay.d.ts133321954165217659 0
 77C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\sax\package.json133321954036972833 0
@@ -846,7 +846,7 @@
 74C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\get-intrinsic133321954047911090 1
 86C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\operators\max.js.map133321954107683067 0
 105C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lmdb\node_modules\node-addon-api\common.gypi133316978987243986 0
-71C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.3a01df49.css133348907552516016 0
+71C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.3a01df49.css133349740694645141 0
 80C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm5\index.js133321954067172281 0
 87C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\tslib\modules\package.json133316979081187267 0
 81C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lodash\fp\convert.js133321954065541561 0
@@ -2907,7 +2907,7 @@
 86C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\operators\timeout.js133321954088430403 0
 92C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\add\operator\zipAll.js.map133321954129311180 0
 86C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\js-yaml\lib\type\float.js133316978943779601 0
-82C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\calendar-outline.d8aded55.svg133348907552750489 0
+82C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\calendar-outline.d8aded55.svg133349740694495537 0
 71C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\fetch133321954145697998 1
 88C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\stream-combiner2\.npmignore133321954038817895 0
 94C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\src\internal\Subscription.ts133321954173651081 0
@@ -3519,7 +3519,7 @@
 77C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm5\fetch133321954104440466 1
 102C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@swc\helpers\cjs\_non_iterable_spread.cjs133316978387345266 0
 88C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\ionic\commands\integrations133321954064023679 1
-75C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.3a01df49.css.map133348907552650755 0
+75C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.3a01df49.css.map133349740694675053 0
 86C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\src\operators\map.ts133321954149572703 0
 84C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\_esm5\index.js.map133321954104470385 0
 137C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeOffCanvasPaths.js133316978109143961 0
@@ -6293,7 +6293,7 @@
 96C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\caniuse-lite\data\regions\alt-ww.js133316978645695485 0
 95C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\operators\throwIfEmpty.js.map133321954123670309 0
 81C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lodash\fp\indexOf.js133321954071071856 0
-74C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.bafbf13d.js.map133348907553328938 0
+74C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.bafbf13d.js.map133349777530653748 0
 88C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\operators\timeout.d.ts133321954176303998 0
 90C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\operators\timeout.js.map133321954123909665 0
 94C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\operators\timeoutWith.js.map133321954124168968 0
@@ -7217,7 +7217,7 @@
 95C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\internal\operators\toArray.js133321954089001155 0
 94C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\internal\operators\window.js133321954090148090 0
 95C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\iconv-lite\encodings\dbcs-codec.js133321954044500066 0
-72C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\search.0186c8d3.png133348907553099560 0
+72C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\search.0186c8d3.png133349740694505514 0
 98C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\internal\operators\window.js.map133321954126349268 0
 101C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\rxjs\internal\operators\windowCount.d.ts133321954179674978 0
 84C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\ionic\commands\build.js133321954053945535 0
@@ -9340,7 +9340,7 @@
 115C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\duplexer2\node_modules\readable-stream\CONTRIBUTING.md133321954052579015 0
 86C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\dotenv\lib\cli-options.js133316978895526049 0
 82C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lodash\fp\mergeAll.js133321954075898945 0
-75C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.cdd200e8.css.map133348907552900094 0
+75C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.cdd200e8.css.map133349740694655106 0
 86C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lodash\fp\mergeAllWith.js133321954075928861 0
 83C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lodash\fp\mergeWith.js133321954075958804 0
 94C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\lmdb\dependencies\lz4\lib\lz4hc.h133316978976929685 0
@@ -11847,7 +11847,7 @@
 88C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\transformer-postcss133316978287042083 1
 86C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@swc\helpers\esm\index.js133316978414558080 0
 107C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\caniuse-lite\data\features\publickeypinning.js133316978565270892 0
-78C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\time-outline.3bf7cbc0.svg133348907552700625 0
+78C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\time-outline.3bf7cbc0.svg133349740694505514 0
 104C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\caniuse-lite\data\features\queryselector.js133316978565669832 0
 104C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\caniuse-lite\data\features\readonly-attr.js133316978565879271 0
 106C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\caniuse-lite\data\features\referrer-policy.js133316978566068761 0
@@ -13220,7 +13220,7 @@
 144C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\definition-syntax\tokenizer.js133316978051790070 0
 136C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\common\adopt-buffer.js133316978050209544 0
 135C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\common\SyntaxError.js133316978049705798 0
-70C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.bafbf13d.js133348907553308996 0
+70C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.bafbf13d.js133349777530573970 0
 135C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\common\TokenStream.js133316978050010081 0
 129C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\dist\csstree.min.js133316978048678547 0
 115C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\@parcel\optimizer-htmlnano\node_modules\css-select\lib133316978043968920 1
@@ -13710,7 +13710,7 @@
 70C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\.bin\uuid133321954182672303 0
 74C:\Users\alex\OneDrive\Desktop\weather-app-main\node_modules\.bin\uuid.cmd133321954182672303 0
 71C:\Users\alex\OneDrive\Desktop\weather-app-main\img\images\humidity.png133316977916838944 0
-73C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\6220925.9453ed3c.jpg133348907552999823 0
+73C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\6220925.9453ed3c.jpg133349740694515490 0
 82C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\6220925.9453ed3c.jpg.14480.55133316977911627386 0
 73C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\drizzle.4033f81c.png133316977912285622 0
 74C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\humidity.5ee5b96c.png133322079445345330 0
@@ -13720,9 +13720,9 @@
 81C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.8cfc62b9.js.map.7028.l133317014117002909 0
 79C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.bafbf13d.js.15260.3q133322111450496712 0
 78C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.bafbf13d.js.22852.e133321942345485934 0
-71C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.cdd200e8.css133348907552840262 0
+71C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.cdd200e8.css133349740694615215 0
 77C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.f5c48570.js.5992.p133318505344366330 0
-63C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.html133348856935937306 0
+63C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\index.html133349740694919483 0
 70C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\mist.d1a4d05d.png133316977914420189 0
 81C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\search.0186c8d3.png.17488.2g133321940522886600 0
 81C:\Users\alex\OneDrive\Desktop\weather-app-main\dist\weather-app-main.3464ddca.js133317017022750163 0
