@@ -1,0 +1,300 @@
+/*
+--- 01 TYPOGRAPHY SYSTEM
+
+- FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weights:
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights:
+Default: 1
+Medium: 1.2
+Small: 1.05
+Paragraph default: 1.6
+
+- LETTER SPACING
+-0.5px
+0.75px;
+
+--- 02 COLORS
+
+- Primary: 
+- Tints: 
+- Shades: 
+- Accents: 
+- Greys: 
+
+
+--- 03 Imgs: unsplash, uifaces(headshots)
+
+--- 04 Icons:
+
+--- 05 SHADOWS: 
+
+box-shadow: 
+
+--- 06 BORDER-RADUIS
+
+Default: 
+
+--- 07 WHITESPACE
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+
+  /* 62.5%. Percentage of user's browser font-size settings  */
+  font-size: 62.5%;
+  /* we want font size to be 10px, but we do not want to set the font-size to a fixed number. 16/10 = 62.5%. */
+}
+
+body {
+  background: url(img/6220925.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  max-width: 47rem;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 4.8rem auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+}
+
+/* form */
+
+form input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 1rem 2.5rem;
+  width: 67%;
+  height: 5.4rem;
+  border-radius: 3rem;
+  flex: 1;
+  margin-right: 1.6rem;
+  font-size: 1.8rem;
+}
+
+.error > p {
+  font-size: 1.6rem;
+}
+
+ion-icon {
+  margin-top: 2rem;
+  height: 5rem;
+  width: 5rem;
+}
+
+.btn {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 5.4rem;
+  height: 5.4rem;
+  cursor: pointer;
+}
+
+button img {
+  width: 1.6rem;
+}
+
+/* weather div */
+
+.weather-icon {
+  width: 11rem;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.weather-div h1 {
+  font-size: 5.2rem;
+  font-weight: 500;
+}
+
+.weather-div h2 {
+  font-size: 3.6rem;
+  font-weight: 400;
+}
+
+/* weather details */
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  margin-top: 5rem;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin-top: -2.5rem;
+}
+
+.col img {
+  width: 4.8rem;
+  margin-right: 1rem;
+}
+
+.left {
+  margin-right: 3rem;
+}
+
+.condition {
+  display: flex;
+}
+
+.speed {
+  display: flex;
+  align-items: end;
+}
+
+.speed > span {
+  margin-left: 0.2rem;
+  margin-bottom: 0.4rem;
+  font-size: 2rem;
+}
+
+.percent > span {
+  font-size: 2rem;
+}
+
+.humidity,
+.wind {
+  margin-top: -0.6rem;
+}
+
+.condition > p {
+  font-size: 3rem;
+}
+
+.condition-div > p {
+  font-size: 1.6rem;
+}
+
+/* hourly */
+
+.hourly-container {
+  /* display: flex; */
+  max-width: 48rem;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 3.2rem auto 0;
+  border-radius: 2rem;
+  padding: 1.6rem 2.4rem;
+  text-align: center;
+}
+
+.title {
+  display: flex;
+  align-items: start;
+}
+
+.hourly-title,
+.forecast-title {
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.svg {
+  width: 18px;
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(324deg)
+    brightness(105%) contrast(101%);
+}
+
+.preview {
+  padding: 0rem 1rem;
+}
+
+.hourly {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 0.8rem 0rem;
+}
+
+.hourImg {
+  /* width: 75%; */
+  width: 4.4rem;
+}
+
+.hour,
+.hourlyTemp {
+  font-size: 1.2rem;
+}
+
+/* forecast */
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  max-width: 48rem;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 3.2rem auto 0;
+  border-radius: 2rem;
+  padding: 2.4rem 3.6rem;
+  text-align: center;
+}
+
+.forecast-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 100%;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 1rem;
+}
+
+.day > p {
+  font-size: 1.8rem;
+}
+
+.day > img {
+  width: 75%;
+}
